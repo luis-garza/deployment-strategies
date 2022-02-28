@@ -1,0 +1,32 @@
+# See https://k3d.io/v5.2.0/usage/configfile
+apiVersion: k3d.io/v1alpha3
+kind: Simple
+name: lab
+servers: 1
+agents: 3
+image: docker.io/rancher/k3s:v1.22.6-k3s1
+options:
+  k3d:
+    wait: true
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true
+  k3s:
+    extraArgs:
+      - arg: --node-taint=node.kubernetes.io/control.plane:NoExecute
+        nodeFilters:
+          - server:*
+      - arg: --no-deploy=traefik
+        nodeFilters:
+          - server:*
+volumes:
+  - volume: ${PWD}/manifests:/var/lib/rancher/k3s/server/manifests/lab
+    nodeFilters:
+      - server:*
+ports:
+  - port: 80:80
+    nodeFilters:
+      - loadbalancer
+  - port: 443:443
+    nodeFilters:
+      - loadbalancer

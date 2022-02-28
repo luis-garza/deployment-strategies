@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-blue
+  labels:
+    app: webapp
+    status: blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapp
+      status: blue
+  template:
+    metadata:
+      labels:
+        app: webapp
+        status: blue
+    spec:
+      containers:
+        - name: webapp-color
+          image: kodekloud/webapp-color:v1
+          ports:
+            - name: http
+              containerPort: 8080
+          resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-blue
+  labels:
+    app: webapp
+    status: blue
+spec:
+  type: ClusterIP
+  selector:
+    app: webapp
+    status: blue
+  ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080

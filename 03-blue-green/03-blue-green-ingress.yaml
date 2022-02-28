@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp
+spec:
+  rules:
+    - host: staging.localhost # adapt it accordingly your endpoint domain
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: webapp-blue
+                port:
+                  name: http
+    - host: live.localhost # adapt it accordingly your endpoint domain
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: webapp-green
+                port:
+                  name: http
