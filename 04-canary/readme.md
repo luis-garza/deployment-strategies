@@ -96,11 +96,11 @@ webapp-canary   0/0     0            0           25m   webapp-color   kodekloud/
 Before going to the next scenario clean up the namespace:
 
 ```bash
-$ kubectl apply --filename 01-canary-v1.yaml
+$ kubectl delete --filename 01-canary-v1.yaml
 deployment.apps/webapp deleted
 service/webapp deleted
 ingress.networking.k8s.io/webapp deleted
 
-$ kubectl apply --filename 02-canary-v2.yaml
+$ kubectl delete --filename 02-canary-v2.yaml
 deployment.apps/webapp-canary deleted
 ```

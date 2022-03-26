@@ -1,7 +1,8 @@
-# See https://k3d.io/v5.2.0/usage/configfile
-apiVersion: k3d.io/v1alpha3
+# See https://k3d.io/v5.3.0/usage/configfile
+apiVersion: k3d.io/v1alpha4
 kind: Simple
-name: lab
+metadata:
+  name: lab
 servers: 1
 agents: 3
 image: docker.io/rancher/k3s:v1.22.6-k3s1
@@ -20,7 +21,7 @@ options:
         nodeFilters:
           - server:*
 volumes:
-  - volume: ${PWD}/manifests:/var/lib/rancher/k3s/server/manifests/lab
+  - volume: ${PWD}/manifests:/var/lib/rancher/k3s/server/manifests/custom
     nodeFilters:
       - server:*
 ports:

@@ -4,7 +4,7 @@
 
 Let's run a blue-green deployment using just basic primitive resources: Deployments, Services and Ingress rules.
 
-The main idea is recreate two full environments of the webapp, one with the current or live version, another with the next or staging version, and switch the traffic betewen the two environments.
+The main idea is recreate two full environments of the webapp, one with the current or live version, another with the next or staging version, and switch the traffic between the two environments.
 
 The great benefit of this approach is that one can run isolated tests the next version without compromising the live service, but in the other hand, it doubles teh required resources and it complexity increases exponentially replicating multiple services or components.
 

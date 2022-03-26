@@ -59,7 +59,7 @@ $ google-chrome http://webapp.localhost
 Opening in existing browser session.
 ```
 
-Open another terminal in leave it watching the deployed resources:
+Open another terminal in leave it watching the deployed resources, note that `watch` is a bash command:
 
 ```bash
 $ watch --interval 1 kubectl get deployments,replicasets,pod --output wide

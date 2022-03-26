@@ -33,7 +33,7 @@ service/argo-rollouts-metrics created
 deployment.apps/argo-rollouts created
 ```
 
-Also install a [CLI plugin](https://argoproj.github.io/argo-rollouts/installation/#kubectl-plugin-installation) to enhance the user experience of Argo rollouts:
+Also install a [CLI plugin](https://argoproj.github.io/argo-rollouts/installation/#kubectl-plugin-installation) to enhance the user experience of Argo rollouts, note that next instructions are for Linux:
 
 ```bash
 $ sudo curl --location --silent --output /usr/local/bin/kubectl-argo-rollouts https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-darwin-amd64
